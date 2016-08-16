@@ -1,0 +1,77 @@
+<div class="search-checkout">
+    <div class="cat-search">
+        Search By Category
+        <select >
+            <option ng-repeat="cat in home.categories">{{cat}}</option>
+        </select>
+    </div>
+    <div class="name-search">
+        Search By Name
+        <input type="text" ng-model="home.nameSearch">
+    </div>
+    <a ui-sref="checkout"><button type="button" name="button" class="btn btn-danger checkout-button">Checkout</button></a>
+</div>
+<table>
+    <thead>
+        <th>
+            <p>
+                Tea
+            </p>
+        </th>
+        <th class="info-price-search">
+            <p>
+                Information
+            </p>
+            <div class="price-sort">
+                Sort By Price
+                <select>
+                    <option>Lowest</option>
+                    <option>Highest</option>
+                </select>
+            </div>
+        </th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in home.productList">
+            <td>
+                <img ng-src="{{product.imageUrl}}"/>
+            </td>
+            <td>
+                <p class="product-title">{{product.name}}</p>
+                <p>
+                    <strong>Price: </strong>{{product.price | price | currency}}
+                </p>
+                <p>
+                    <strong>Caffeine Scale: </strong>{{ product.caffeineScale}}
+                </p>
+                <p class="ingredients-list">
+                    <strong>Ingredients: </strong>{{ product.ingredients}}
+                </p>
+                <p>
+                    <strong>Rating: </strong>{{ product.rating}}
+                </p>
+                <p>
+                    <strong>In Stock? </strong>{{ product.inStock | yesNo}}
+                </p>
+                <p>
+                    <strong>Categories:</strong>
+                </p>
+                <ul>
+                    <li ng-repeat="category in product.categories">{{category}}</li>
+                </ul>
+
+                <div class="td-right">
+                    <div class="td-right-top">
+                        <p class="quantity-title">
+                            Quantity
+                        </p>
+                        <select ng-model="product.quantity">
+                            <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]">{{num}}</option>
+                        </select>
+                        <button type="button" class="btn btn-warning" ng-click='home.addToBag(product)'>Add To Bag</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

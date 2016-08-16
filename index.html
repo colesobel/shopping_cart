@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="shoppingCart">
+    <head>
+        <meta charset="utf-8">
+        <title>Shopping Cart</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="orange-header">
+                Guaranteed Awesome!
+            </div>
+            <p class="welcome-header">
+                Welcome to MEAN Tea!
+            </p>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div ui-view></div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js" charset="utf-8"></script>
+        <script src="/js/services.js" charset="utf-8"></script>
+        <script src="/js/filters.js" charset="utf-8"></script>
+        <script src="/js/controllers.js" charset="utf-8"></script>
+        <script src="/js/directives.js" charset="utf-8"></script>
+        <script src="/js/app.js" charset="utf-8"></script>
+    </body>
+</html>

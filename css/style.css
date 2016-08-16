@@ -1,0 +1,86 @@
+.orange-header {
+  background-color: #FF6C3C;
+  width: 100%;
+  height: 30px;
+  color: white;
+  text-align: center;
+}
+
+.welcome-header {
+  color: #FF6C3C;
+  font-size: 2em;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 2em;
+}
+
+tr, th, td {
+  border: 2px solid #EBECED;
+}
+
+
+td, th {
+  padding: 5px;
+}
+
+td {
+  position: relative;
+}
+
+.td-right {
+  height: 100px;
+  width: 35%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+}
+
+.ingredients-list {
+  max-width: 65%;
+  overflow-x: auto;
+}
+
+.quantity-title {
+  font-size: 1.5em;
+}
+
+.td-right-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.search-checkout {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 40px;
+}
+
+.name-search {
+  margin-left: 100px;
+}
+
+.checkout-button {
+  position: absolute;
+  right: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+.info-price-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+}
+
+th {
+  font-weight: normal;
+}

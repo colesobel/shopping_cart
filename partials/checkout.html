@@ -1,0 +1,38 @@
+<p class="checkout-title">
+    My Shopping Bag
+</p>
+
+
+<table>
+    <thead>
+        <th>
+            Product
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Sub-Total
+        </th>
+        <th>
+            Edit/Remove
+        </th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item  in co.finalItems">
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{item.quantity}}
+            </td>
+            <td>
+                {{ item.quantity * (item.price | price) | currency }}
+            </td>
+            <td>
+                <button type="button" name="button" class="btn btn-warning">Edit</button>
+                <button type="button" name="button" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
