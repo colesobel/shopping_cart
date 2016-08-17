@@ -14,6 +14,6 @@ angular.module('shoppingCart', ['ui.router', 'shoppingCart.controllers', 'shoppi
     url: '/checkout',
     templateUrl: '/partials/checkout.html',
     controller: 'checkoutController',
-    controllerAs: 'co'
+    controllerAs: 'checkout'
   })
 }])

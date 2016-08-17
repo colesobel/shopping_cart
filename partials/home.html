@@ -1,7 +1,10 @@
 <div class="search-checkout">
+    <!-- <button type="button" name="button" ng-click="home.orderByPriceLog()"> click me</button> -->
     <div class="cat-search">
         Search By Category
-        <select >
+        <select ng-model="home.categoryFilter">
+            <option disabled selected> Select a Category</option>
+            <option value=""> All </option>
             <option ng-repeat="cat in home.categories">{{cat}}</option>
         </select>
     </div>
@@ -9,7 +12,7 @@
         Search By Name
         <input type="text" ng-model="home.nameSearch">
     </div>
-    <a ui-sref="checkout"><button type="button" name="button" class="btn btn-danger checkout-button">Checkout</button></a>
+    <a ui-sref="checkout"><button type="button" name="button" class="btn btn-danger checkout-button">Checkout | Bag: <ng-pluralize count="{{home.itemsInBag}}" when="{'0': 'Empty!', 'one': '(1)',  'other': '({})'}"></ng-pluralize></button></a>
 </div>
 <table>
     <thead>
@@ -24,15 +27,12 @@
             </p>
             <div class="price-sort">
                 Sort By Price
-                <select>
-                    <option>Lowest</option>
-                    <option>Highest</option>
-                </select>
+                <select ng-model="home.orderByPrice" ng-options="home.boolToStr(item) for item in [true, false]"></select>
             </div>
         </th>
     </thead>
     <tbody>
-        <tr ng-repeat="product in home.productList">
+        <tr ng-repeat="product in home.productList | orderBy: 'price': home.orderByPrice | filter: home.nameSearchFun | filter: home.search">
             <td>
                 <img ng-src="{{product.imageUrl}}"/>
             </td>

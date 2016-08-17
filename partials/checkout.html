@@ -1,6 +1,11 @@
-<p class="checkout-title">
-    My Shopping Bag
-</p>
+<div class="checkout-header">
+    <p class="product-title">
+        My Shopping Bag
+    </p>
+    <p class="product-title">
+        Order Total: {{(checkout.totalPrice | price) || 0 | currency}}
+    </p>
+</div>
 
 
 <table>
@@ -19,20 +24,46 @@
         </th>
     </thead>
     <tbody>
-        <tr ng-repeat="item  in co.finalItems">
+        <tr ng-repeat="item in checkout.finalItems">
             <td>
-                {{item.name}}
+                <div class="checkout-container">
+                    <p class="product-title">{{item.name}}</p>
+                    <div class="">
+                        <img ng-src="{{item.imageUrl}}"/>
+                    </div>
+                    <p>
+                        <strong>Caffeine Scale:</strong> {{item.caffeineScale}}
+                    </p>
+                    <p>
+                        <strong>Ingredients:</strong> {{item.ingredients}}
+                    </p>
+                    <p>
+                        <strong>Rating:</strong> {{item.rating}}
+                    </p>
+                </div>
             </td>
             <td>
-                {{item.quantity}}
+                <div class="checkout-tds" ng-switch="item.editCheckout">
+                    <input class="small-input" type="number" ng-model="item.quantity" ng-switch-when="true">
+                    <p ng-switch-when="false">{{item.quantity}}</p>
+                </div>
             </td>
             <td>
-                {{ item.quantity * (item.price | price) | currency }}
+                <div class="checkout-tds">
+                    {{ item.quantity * (item.price | price) | currency }}
+                </div>
             </td>
             <td>
-                <button type="button" name="button" class="btn btn-warning">Edit</button>
-                <button type="button" name="button" class="btn btn-danger">Delete</button>
+                <div class="checkout-tds">
+                    <div ng-switch="item.editCheckout">
+                        <button type="button" name="button" class="btn btn-warning edit-delete" ng-click="checkout.editCheckoutItems($index)" ng-switch-default>Edit</button>
+                        <button type="button" name="button" class="btn btn-warning edit-delete" ng-click="checkout.saveItemChanges($index)" ng-switch-when="true">Save</button>
+
+                    </div>
+                    <button type="button" name="button" class="btn btn-danger edit-delete" ng-click="checkout.deleteItem(item)">Delete</button>
+                </div>
             </td>
         </tr>
     </tbody>
 </table>
+<button type="button" name="button" class="place-order">Place Order</button>

@@ -84,3 +84,34 @@ table {
 th {
   font-weight: normal;
 }
+
+.checkout-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-tds {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 5%;
+}
+
+.edit-delete {
+  margin: 5px;
+}
+
+.place-order {
+  float: right;
+  margin: 10px;
+}
+
+.small-input {
+  max-width: 75px;
+}
