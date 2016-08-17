@@ -12,7 +12,10 @@
         Search By Name
         <input type="text" ng-model="home.nameSearch">
     </div>
-    <a ui-sref="checkout"><button type="button" name="button" class="btn btn-danger checkout-button">Checkout | Bag: <ng-pluralize count="{{home.itemsInBag}}" when="{'0': 'Empty!', 'one': '(1)',  'other': '({})'}"></ng-pluralize></button></a>
+    <div ng-switch="home.itemsInBag">
+        <a ui-sref="checkout"><button type="button" name="button" class="btn btn-danger checkout-button" ng-switch-when="0">Checkout | Bag: Empty!</button></a>
+        <a ui-sref="checkout"><button type="button" name="button" class="btn btn-danger checkout-button" ng-switch-default>Checkout | Bag: ({{home.itemsInBag}})</button></a>
+    </div>
 </div>
 <table>
     <thead>

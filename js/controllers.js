@@ -82,20 +82,24 @@ angular.module('shoppingCart.controllers', [])
     checkout.finalItems.splice(index, 1)
     $state.transitionTo($state.current, { reload: true, inherit: false, notify: true });
     calculateTotal()
+    updateServiceShoppingCart()
   }
 
   checkout.editCheckoutItems = function(index) {
-    console.log(checkout.finalItems);
     checkout.finalItems[index].editCheckout = true
     $state.transitionTo($state.current, { reload: true, inherit: false, notify: true });
+  }
+
+  function updateServiceShoppingCart() {
+    shoppingCart.items = {}
+    checkout.finalItems.forEach((item) => {
+      shoppingCart.items[item._id] = item
+    })
   }
 
   checkout.saveItemChanges = function (index) {
     checkout.finalItems[index].editCheckout = false
     calculateTotal()
-    shoppingCart.items = {}
-    checkout.finalItems.forEach((item) => {
-      shoppingCart.items[item._id] = item
-    })
+    updateServiceShoppingCart()
   }
 }])

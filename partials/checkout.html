@@ -58,7 +58,6 @@
                     <div ng-switch="item.editCheckout">
                         <button type="button" name="button" class="btn btn-warning edit-delete" ng-click="checkout.editCheckoutItems($index)" ng-switch-default>Edit</button>
                         <button type="button" name="button" class="btn btn-warning edit-delete" ng-click="checkout.saveItemChanges($index)" ng-switch-when="true">Save</button>
-
                     </div>
                     <button type="button" name="button" class="btn btn-danger edit-delete" ng-click="checkout.deleteItem(item)">Delete</button>
                 </div>
